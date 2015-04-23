@@ -25,7 +25,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_ChosenRecruit_Recruit", "Recruit", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FormDatabaseConverter.EntityModel.Recruit), "ChosenRecruit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.ChosenRecruit), true)]
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_ChosenRecruit_Season", "Season", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.Season), "ChosenRecruit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.ChosenRecruit), true)]
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Recruit_Competency", "Competency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.Competency), "Recruit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Recruit), true)]
-[assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Department_Season", "Season", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FormDatabaseConverter.EntityModel.Season), "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Department), true)]
+[assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Department_Season", "Season", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.Season), "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Department), true)]
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Recruit_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.Department), "Recruit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Recruit), true)]
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_MilitaryCertificate_Deputy", "Deputy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.Deputy), "MilitaryCertificate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.MilitaryCertificate), true)]
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Squad_Deputy", "Deputy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.Deputy), "Squad", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Squad), true)]
@@ -36,13 +36,13 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_SquadDuty_DutyForm", "DutyForm", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.DutyForm), "SquadDuty", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.SquadDuty), true)]
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Squad_Echelon", "Echelon", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FormDatabaseConverter.EntityModel.Echelon), "Squad", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Squad), true)]
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Recruit_Education", "Education", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.Education), "Recruit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Recruit), true)]
-[assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Recruit_FamilyStatus", "FamilyStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.FamilyStatu), "Recruit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Recruit), true)]
-[assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Recruit_MarriageStatus", "MarriageStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.MarriageStatu), "Recruit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Recruit), true)]
+[assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Recruit_FamilyStatus", "FamilyStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.FamilyStatus), "Recruit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Recruit), true)]
+[assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Recruit_MarriageStatus", "MarriageStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.MarriageStatus), "Recruit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Recruit), true)]
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Recruit_MedicineCategory", "MedicineCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.MedicineCategory), "Recruit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Recruit), true)]
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Recruit_MedicineDegree", "MedicineDegree", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.MedicineDegree), "Recruit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Recruit), true)]
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_MilitaryCertificate_MilitaryTitle", "MilitaryTitle", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.MilitaryTitle), "MilitaryCertificate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.MilitaryCertificate), true)]
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Station_MilitaryDistrict", "MilitaryDistrict", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.MilitaryDistrict), "Station", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Station), true)]
-[assembly: EdmRelationshipAttribute("BrandNewModel", "FK_MilitaryUnit_MilitaryForces", "MilitaryForces", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.MilitaryForce), "MilitaryUnit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.MilitaryUnit), true)]
+[assembly: EdmRelationshipAttribute("BrandNewModel", "FK_MilitaryUnit_MilitaryForces", "MilitaryForces", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.MilitaryForces), "MilitaryUnit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.MilitaryUnit), true)]
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_MilitaryUnit_Station", "Station", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.Station), "MilitaryUnit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.MilitaryUnit), true)]
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Phone_MilitaryUnit", "MilitaryUnit", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.MilitaryUnit), "Phone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Phone), true)]
 [assembly: EdmRelationshipAttribute("BrandNewModel", "FK_Squadron_MilitaryUnit", "MilitaryUnit", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FormDatabaseConverter.EntityModel.MilitaryUnit), "Squadron", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FormDatabaseConverter.EntityModel.Squadron), true)]
@@ -122,1013 +122,1013 @@ namespace FormDatabaseConverter.EntityModel
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Activity> Activities
+        public ObjectSet<Activity> Activity
         {
             get
             {
-                if ((_Activities == null))
+                if ((_Activity == null))
                 {
-                    _Activities = base.CreateObjectSet<Activity>("Activities");
+                    _Activity = base.CreateObjectSet<Activity>("Activity");
                 }
-                return _Activities;
+                return _Activity;
             }
         }
-        private ObjectSet<Activity> _Activities;
+        private ObjectSet<Activity> _Activity;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<BadRegistry> BadRegistries
+        public ObjectSet<BadRegistry> BadRegistry
         {
             get
             {
-                if ((_BadRegistries == null))
+                if ((_BadRegistry == null))
                 {
-                    _BadRegistries = base.CreateObjectSet<BadRegistry>("BadRegistries");
+                    _BadRegistry = base.CreateObjectSet<BadRegistry>("BadRegistry");
                 }
-                return _BadRegistries;
+                return _BadRegistry;
             }
         }
-        private ObjectSet<BadRegistry> _BadRegistries;
+        private ObjectSet<BadRegistry> _BadRegistry;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<ChosenRecruit> ChosenRecruits
+        public ObjectSet<ChosenRecruit> ChosenRecruit
         {
             get
             {
-                if ((_ChosenRecruits == null))
+                if ((_ChosenRecruit == null))
                 {
-                    _ChosenRecruits = base.CreateObjectSet<ChosenRecruit>("ChosenRecruits");
+                    _ChosenRecruit = base.CreateObjectSet<ChosenRecruit>("ChosenRecruit");
                 }
-                return _ChosenRecruits;
+                return _ChosenRecruit;
             }
         }
-        private ObjectSet<ChosenRecruit> _ChosenRecruits;
+        private ObjectSet<ChosenRecruit> _ChosenRecruit;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Competency> Competencies
+        public ObjectSet<Competency> Competency
         {
             get
             {
-                if ((_Competencies == null))
+                if ((_Competency == null))
                 {
-                    _Competencies = base.CreateObjectSet<Competency>("Competencies");
+                    _Competency = base.CreateObjectSet<Competency>("Competency");
                 }
-                return _Competencies;
+                return _Competency;
             }
         }
-        private ObjectSet<Competency> _Competencies;
+        private ObjectSet<Competency> _Competency;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Department> Departments
+        public ObjectSet<Department> Department
         {
             get
             {
-                if ((_Departments == null))
+                if ((_Department == null))
                 {
-                    _Departments = base.CreateObjectSet<Department>("Departments");
+                    _Department = base.CreateObjectSet<Department>("Department");
                 }
-                return _Departments;
+                return _Department;
             }
         }
-        private ObjectSet<Department> _Departments;
+        private ObjectSet<Department> _Department;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Deputy> Deputies
+        public ObjectSet<Deputy> Deputy
         {
             get
             {
-                if ((_Deputies == null))
+                if ((_Deputy == null))
                 {
-                    _Deputies = base.CreateObjectSet<Deputy>("Deputies");
+                    _Deputy = base.CreateObjectSet<Deputy>("Deputy");
                 }
-                return _Deputies;
+                return _Deputy;
             }
         }
-        private ObjectSet<Deputy> _Deputies;
+        private ObjectSet<Deputy> _Deputy;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Dismissal> Dismissals
+        public ObjectSet<Dismissal> Dismissal
         {
             get
             {
-                if ((_Dismissals == null))
+                if ((_Dismissal == null))
                 {
-                    _Dismissals = base.CreateObjectSet<Dismissal>("Dismissals");
+                    _Dismissal = base.CreateObjectSet<Dismissal>("Dismissal");
                 }
-                return _Dismissals;
+                return _Dismissal;
             }
         }
-        private ObjectSet<Dismissal> _Dismissals;
+        private ObjectSet<Dismissal> _Dismissal;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<DriverLicense> DriverLicenses
+        public ObjectSet<DriverLicense> DriverLicense
         {
             get
             {
-                if ((_DriverLicenses == null))
+                if ((_DriverLicense == null))
                 {
-                    _DriverLicenses = base.CreateObjectSet<DriverLicense>("DriverLicenses");
+                    _DriverLicense = base.CreateObjectSet<DriverLicense>("DriverLicense");
                 }
-                return _DriverLicenses;
+                return _DriverLicense;
             }
         }
-        private ObjectSet<DriverLicense> _DriverLicenses;
+        private ObjectSet<DriverLicense> _DriverLicense;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<DutyForm> DutyForms
+        public ObjectSet<DutyForm> DutyForm
         {
             get
             {
-                if ((_DutyForms == null))
+                if ((_DutyForm == null))
                 {
-                    _DutyForms = base.CreateObjectSet<DutyForm>("DutyForms");
+                    _DutyForm = base.CreateObjectSet<DutyForm>("DutyForm");
                 }
-                return _DutyForms;
+                return _DutyForm;
             }
         }
-        private ObjectSet<DutyForm> _DutyForms;
+        private ObjectSet<DutyForm> _DutyForm;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Echelon> Echelons
+        public ObjectSet<Echelon> Echelon
         {
             get
             {
-                if ((_Echelons == null))
+                if ((_Echelon == null))
                 {
-                    _Echelons = base.CreateObjectSet<Echelon>("Echelons");
+                    _Echelon = base.CreateObjectSet<Echelon>("Echelon");
                 }
-                return _Echelons;
+                return _Echelon;
             }
         }
-        private ObjectSet<Echelon> _Echelons;
+        private ObjectSet<Echelon> _Echelon;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Education> Educations
+        public ObjectSet<Education> Education
         {
             get
             {
-                if ((_Educations == null))
+                if ((_Education == null))
                 {
-                    _Educations = base.CreateObjectSet<Education>("Educations");
+                    _Education = base.CreateObjectSet<Education>("Education");
                 }
-                return _Educations;
+                return _Education;
             }
         }
-        private ObjectSet<Education> _Educations;
+        private ObjectSet<Education> _Education;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<FamilyStatu> FamilyStatus
+        public ObjectSet<FamilyStatus> FamilyStatus
         {
             get
             {
                 if ((_FamilyStatus == null))
                 {
-                    _FamilyStatus = base.CreateObjectSet<FamilyStatu>("FamilyStatus");
+                    _FamilyStatus = base.CreateObjectSet<FamilyStatus>("FamilyStatus");
                 }
                 return _FamilyStatus;
             }
         }
-        private ObjectSet<FamilyStatu> _FamilyStatus;
+        private ObjectSet<FamilyStatus> _FamilyStatus;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<MarriageStatu> MarriageStatus
+        public ObjectSet<MarriageStatus> MarriageStatus
         {
             get
             {
                 if ((_MarriageStatus == null))
                 {
-                    _MarriageStatus = base.CreateObjectSet<MarriageStatu>("MarriageStatus");
+                    _MarriageStatus = base.CreateObjectSet<MarriageStatus>("MarriageStatus");
                 }
                 return _MarriageStatus;
             }
         }
-        private ObjectSet<MarriageStatu> _MarriageStatus;
+        private ObjectSet<MarriageStatus> _MarriageStatus;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<MedicineCategory> MedicineCategories
+        public ObjectSet<MedicineCategory> MedicineCategory
         {
             get
             {
-                if ((_MedicineCategories == null))
+                if ((_MedicineCategory == null))
                 {
-                    _MedicineCategories = base.CreateObjectSet<MedicineCategory>("MedicineCategories");
+                    _MedicineCategory = base.CreateObjectSet<MedicineCategory>("MedicineCategory");
                 }
-                return _MedicineCategories;
+                return _MedicineCategory;
             }
         }
-        private ObjectSet<MedicineCategory> _MedicineCategories;
+        private ObjectSet<MedicineCategory> _MedicineCategory;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<MedicineDegree> MedicineDegrees
+        public ObjectSet<MedicineDegree> MedicineDegree
         {
             get
             {
-                if ((_MedicineDegrees == null))
+                if ((_MedicineDegree == null))
                 {
-                    _MedicineDegrees = base.CreateObjectSet<MedicineDegree>("MedicineDegrees");
+                    _MedicineDegree = base.CreateObjectSet<MedicineDegree>("MedicineDegree");
                 }
-                return _MedicineDegrees;
+                return _MedicineDegree;
             }
         }
-        private ObjectSet<MedicineDegree> _MedicineDegrees;
+        private ObjectSet<MedicineDegree> _MedicineDegree;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<MilitaryCertificate> MilitaryCertificates
+        public ObjectSet<MilitaryCertificate> MilitaryCertificate
         {
             get
             {
-                if ((_MilitaryCertificates == null))
+                if ((_MilitaryCertificate == null))
                 {
-                    _MilitaryCertificates = base.CreateObjectSet<MilitaryCertificate>("MilitaryCertificates");
+                    _MilitaryCertificate = base.CreateObjectSet<MilitaryCertificate>("MilitaryCertificate");
                 }
-                return _MilitaryCertificates;
+                return _MilitaryCertificate;
             }
         }
-        private ObjectSet<MilitaryCertificate> _MilitaryCertificates;
+        private ObjectSet<MilitaryCertificate> _MilitaryCertificate;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<MilitaryDistrict> MilitaryDistricts
+        public ObjectSet<MilitaryDistrict> MilitaryDistrict
         {
             get
             {
-                if ((_MilitaryDistricts == null))
+                if ((_MilitaryDistrict == null))
                 {
-                    _MilitaryDistricts = base.CreateObjectSet<MilitaryDistrict>("MilitaryDistricts");
+                    _MilitaryDistrict = base.CreateObjectSet<MilitaryDistrict>("MilitaryDistrict");
                 }
-                return _MilitaryDistricts;
+                return _MilitaryDistrict;
             }
         }
-        private ObjectSet<MilitaryDistrict> _MilitaryDistricts;
+        private ObjectSet<MilitaryDistrict> _MilitaryDistrict;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<MilitaryForce> MilitaryForces
+        public ObjectSet<MilitaryForces> MilitaryForces
         {
             get
             {
                 if ((_MilitaryForces == null))
                 {
-                    _MilitaryForces = base.CreateObjectSet<MilitaryForce>("MilitaryForces");
+                    _MilitaryForces = base.CreateObjectSet<MilitaryForces>("MilitaryForces");
                 }
                 return _MilitaryForces;
             }
         }
-        private ObjectSet<MilitaryForce> _MilitaryForces;
+        private ObjectSet<MilitaryForces> _MilitaryForces;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<MilitaryTitle> MilitaryTitles
+        public ObjectSet<MilitaryTitle> MilitaryTitle
         {
             get
             {
-                if ((_MilitaryTitles == null))
+                if ((_MilitaryTitle == null))
                 {
-                    _MilitaryTitles = base.CreateObjectSet<MilitaryTitle>("MilitaryTitles");
+                    _MilitaryTitle = base.CreateObjectSet<MilitaryTitle>("MilitaryTitle");
                 }
-                return _MilitaryTitles;
+                return _MilitaryTitle;
             }
         }
-        private ObjectSet<MilitaryTitle> _MilitaryTitles;
+        private ObjectSet<MilitaryTitle> _MilitaryTitle;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<MilitaryUnit> MilitaryUnits
+        public ObjectSet<MilitaryUnit> MilitaryUnit
         {
             get
             {
-                if ((_MilitaryUnits == null))
+                if ((_MilitaryUnit == null))
                 {
-                    _MilitaryUnits = base.CreateObjectSet<MilitaryUnit>("MilitaryUnits");
+                    _MilitaryUnit = base.CreateObjectSet<MilitaryUnit>("MilitaryUnit");
                 }
-                return _MilitaryUnits;
+                return _MilitaryUnit;
             }
         }
-        private ObjectSet<MilitaryUnit> _MilitaryUnits;
+        private ObjectSet<MilitaryUnit> _MilitaryUnit;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<NeuroPsychicStability> NeuroPsychicStabilities
+        public ObjectSet<NeuroPsychicStability> NeuroPsychicStability
         {
             get
             {
-                if ((_NeuroPsychicStabilities == null))
+                if ((_NeuroPsychicStability == null))
                 {
-                    _NeuroPsychicStabilities = base.CreateObjectSet<NeuroPsychicStability>("NeuroPsychicStabilities");
+                    _NeuroPsychicStability = base.CreateObjectSet<NeuroPsychicStability>("NeuroPsychicStability");
                 }
-                return _NeuroPsychicStabilities;
+                return _NeuroPsychicStability;
             }
         }
-        private ObjectSet<NeuroPsychicStability> _NeuroPsychicStabilities;
+        private ObjectSet<NeuroPsychicStability> _NeuroPsychicStability;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<OrderSoldier> OrderSoldiers
+        public ObjectSet<OrderSoldier> OrderSoldier
         {
             get
             {
-                if ((_OrderSoldiers == null))
+                if ((_OrderSoldier == null))
                 {
-                    _OrderSoldiers = base.CreateObjectSet<OrderSoldier>("OrderSoldiers");
+                    _OrderSoldier = base.CreateObjectSet<OrderSoldier>("OrderSoldier");
                 }
-                return _OrderSoldiers;
+                return _OrderSoldier;
             }
         }
-        private ObjectSet<OrderSoldier> _OrderSoldiers;
+        private ObjectSet<OrderSoldier> _OrderSoldier;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Permission> Permissions
+        public ObjectSet<Permission> Permission
         {
             get
             {
-                if ((_Permissions == null))
+                if ((_Permission == null))
                 {
-                    _Permissions = base.CreateObjectSet<Permission>("Permissions");
+                    _Permission = base.CreateObjectSet<Permission>("Permission");
                 }
-                return _Permissions;
+                return _Permission;
             }
         }
-        private ObjectSet<Permission> _Permissions;
+        private ObjectSet<Permission> _Permission;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<PermissionForm> PermissionForms
+        public ObjectSet<PermissionForm> PermissionForm
         {
             get
             {
-                if ((_PermissionForms == null))
+                if ((_PermissionForm == null))
                 {
-                    _PermissionForms = base.CreateObjectSet<PermissionForm>("PermissionForms");
+                    _PermissionForm = base.CreateObjectSet<PermissionForm>("PermissionForm");
                 }
-                return _PermissionForms;
+                return _PermissionForm;
             }
         }
-        private ObjectSet<PermissionForm> _PermissionForms;
+        private ObjectSet<PermissionForm> _PermissionForm;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Phone> Phones
+        public ObjectSet<Phone> Phone
         {
             get
             {
-                if ((_Phones == null))
+                if ((_Phone == null))
                 {
-                    _Phones = base.CreateObjectSet<Phone>("Phones");
+                    _Phone = base.CreateObjectSet<Phone>("Phone");
                 }
-                return _Phones;
+                return _Phone;
             }
         }
-        private ObjectSet<Phone> _Phones;
+        private ObjectSet<Phone> _Phone;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Railroad> Railroads
+        public ObjectSet<Railroad> Railroad
         {
             get
             {
-                if ((_Railroads == null))
+                if ((_Railroad == null))
                 {
-                    _Railroads = base.CreateObjectSet<Railroad>("Railroads");
+                    _Railroad = base.CreateObjectSet<Railroad>("Railroad");
                 }
-                return _Railroads;
+                return _Railroad;
             }
         }
-        private ObjectSet<Railroad> _Railroads;
+        private ObjectSet<Railroad> _Railroad;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Recruit> Recruits
+        public ObjectSet<Recruit> Recruit
         {
             get
             {
-                if ((_Recruits == null))
+                if ((_Recruit == null))
                 {
-                    _Recruits = base.CreateObjectSet<Recruit>("Recruits");
+                    _Recruit = base.CreateObjectSet<Recruit>("Recruit");
                 }
-                return _Recruits;
+                return _Recruit;
             }
         }
-        private ObjectSet<Recruit> _Recruits;
+        private ObjectSet<Recruit> _Recruit;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<RecruitsLog> RecruitsLogs
+        public ObjectSet<RecruitsLog> RecruitsLog
         {
             get
             {
-                if ((_RecruitsLogs == null))
+                if ((_RecruitsLog == null))
                 {
-                    _RecruitsLogs = base.CreateObjectSet<RecruitsLog>("RecruitsLogs");
+                    _RecruitsLog = base.CreateObjectSet<RecruitsLog>("RecruitsLog");
                 }
-                return _RecruitsLogs;
+                return _RecruitsLog;
             }
         }
-        private ObjectSet<RecruitsLog> _RecruitsLogs;
+        private ObjectSet<RecruitsLog> _RecruitsLog;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<RecruitSport> RecruitSports
+        public ObjectSet<RecruitSport> RecruitSport
         {
             get
             {
-                if ((_RecruitSports == null))
+                if ((_RecruitSport == null))
                 {
-                    _RecruitSports = base.CreateObjectSet<RecruitSport>("RecruitSports");
+                    _RecruitSport = base.CreateObjectSet<RecruitSport>("RecruitSport");
                 }
-                return _RecruitSports;
+                return _RecruitSport;
             }
         }
-        private ObjectSet<RecruitSport> _RecruitSports;
+        private ObjectSet<RecruitSport> _RecruitSport;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Relative> Relatives
+        public ObjectSet<Relative> Relative
         {
             get
             {
-                if ((_Relatives == null))
+                if ((_Relative == null))
                 {
-                    _Relatives = base.CreateObjectSet<Relative>("Relatives");
+                    _Relative = base.CreateObjectSet<Relative>("Relative");
                 }
-                return _Relatives;
+                return _Relative;
             }
         }
-        private ObjectSet<Relative> _Relatives;
+        private ObjectSet<Relative> _Relative;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Return> Returns
+        public ObjectSet<Return> Return
         {
             get
             {
-                if ((_Returns == null))
+                if ((_Return == null))
                 {
-                    _Returns = base.CreateObjectSet<Return>("Returns");
+                    _Return = base.CreateObjectSet<Return>("Return");
                 }
-                return _Returns;
+                return _Return;
             }
         }
-        private ObjectSet<Return> _Returns;
+        private ObjectSet<Return> _Return;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Season> Seasons
+        public ObjectSet<Season> Season
         {
             get
             {
-                if ((_Seasons == null))
+                if ((_Season == null))
                 {
-                    _Seasons = base.CreateObjectSet<Season>("Seasons");
+                    _Season = base.CreateObjectSet<Season>("Season");
                 }
-                return _Seasons;
+                return _Season;
             }
         }
-        private ObjectSet<Season> _Seasons;
+        private ObjectSet<Season> _Season;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<SelfDesiredAbsence> SelfDesiredAbsences
+        public ObjectSet<SelfDesiredAbsence> SelfDesiredAbsence
         {
             get
             {
-                if ((_SelfDesiredAbsences == null))
+                if ((_SelfDesiredAbsence == null))
                 {
-                    _SelfDesiredAbsences = base.CreateObjectSet<SelfDesiredAbsence>("SelfDesiredAbsences");
+                    _SelfDesiredAbsence = base.CreateObjectSet<SelfDesiredAbsence>("SelfDesiredAbsence");
                 }
-                return _SelfDesiredAbsences;
+                return _SelfDesiredAbsence;
             }
         }
-        private ObjectSet<SelfDesiredAbsence> _SelfDesiredAbsences;
+        private ObjectSet<SelfDesiredAbsence> _SelfDesiredAbsence;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Speciality> Specialities
+        public ObjectSet<Speciality> Speciality
         {
             get
             {
-                if ((_Specialities == null))
+                if ((_Speciality == null))
                 {
-                    _Specialities = base.CreateObjectSet<Speciality>("Specialities");
+                    _Speciality = base.CreateObjectSet<Speciality>("Speciality");
                 }
-                return _Specialities;
+                return _Speciality;
             }
         }
-        private ObjectSet<Speciality> _Specialities;
+        private ObjectSet<Speciality> _Speciality;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<SportCategory> SportCategories
+        public ObjectSet<SportCategory> SportCategory
         {
             get
             {
-                if ((_SportCategories == null))
+                if ((_SportCategory == null))
                 {
-                    _SportCategories = base.CreateObjectSet<SportCategory>("SportCategories");
+                    _SportCategory = base.CreateObjectSet<SportCategory>("SportCategory");
                 }
-                return _SportCategories;
+                return _SportCategory;
             }
         }
-        private ObjectSet<SportCategory> _SportCategories;
+        private ObjectSet<SportCategory> _SportCategory;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<SportType> SportTypes
+        public ObjectSet<SportType> SportType
         {
             get
             {
-                if ((_SportTypes == null))
+                if ((_SportType == null))
                 {
-                    _SportTypes = base.CreateObjectSet<SportType>("SportTypes");
+                    _SportType = base.CreateObjectSet<SportType>("SportType");
                 }
-                return _SportTypes;
+                return _SportType;
             }
         }
-        private ObjectSet<SportType> _SportTypes;
+        private ObjectSet<SportType> _SportType;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Squad> Squads
+        public ObjectSet<Squad> Squad
         {
             get
             {
-                if ((_Squads == null))
+                if ((_Squad == null))
                 {
-                    _Squads = base.CreateObjectSet<Squad>("Squads");
+                    _Squad = base.CreateObjectSet<Squad>("Squad");
                 }
-                return _Squads;
+                return _Squad;
             }
         }
-        private ObjectSet<Squad> _Squads;
+        private ObjectSet<Squad> _Squad;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<SquadDuty> SquadDuties
+        public ObjectSet<SquadDuty> SquadDuty
         {
             get
             {
-                if ((_SquadDuties == null))
+                if ((_SquadDuty == null))
                 {
-                    _SquadDuties = base.CreateObjectSet<SquadDuty>("SquadDuties");
+                    _SquadDuty = base.CreateObjectSet<SquadDuty>("SquadDuty");
                 }
-                return _SquadDuties;
+                return _SquadDuty;
             }
         }
-        private ObjectSet<SquadDuty> _SquadDuties;
+        private ObjectSet<SquadDuty> _SquadDuty;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Squadron> Squadrons
+        public ObjectSet<Squadron> Squadron
         {
             get
             {
-                if ((_Squadrons == null))
+                if ((_Squadron == null))
                 {
-                    _Squadrons = base.CreateObjectSet<Squadron>("Squadrons");
+                    _Squadron = base.CreateObjectSet<Squadron>("Squadron");
                 }
-                return _Squadrons;
+                return _Squadron;
             }
         }
-        private ObjectSet<Squadron> _Squadrons;
+        private ObjectSet<Squadron> _Squadron;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Station> Stations
+        public ObjectSet<Station> Station
         {
             get
             {
-                if ((_Stations == null))
+                if ((_Station == null))
                 {
-                    _Stations = base.CreateObjectSet<Station>("Stations");
+                    _Station = base.CreateObjectSet<Station>("Station");
                 }
-                return _Stations;
+                return _Station;
             }
         }
-        private ObjectSet<Station> _Stations;
+        private ObjectSet<Station> _Station;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<TDT> TDTs
+        public ObjectSet<TDT> TDT
         {
             get
             {
-                if ((_TDTs == null))
+                if ((_TDT == null))
                 {
-                    _TDTs = base.CreateObjectSet<TDT>("TDTs");
+                    _TDT = base.CreateObjectSet<TDT>("TDT");
                 }
-                return _TDTs;
+                return _TDT;
             }
         }
-        private ObjectSet<TDT> _TDTs;
+        private ObjectSet<TDT> _TDT;
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        public ObjectSet<Token> Tokens
+        public ObjectSet<Token> Token
         {
             get
             {
-                if ((_Tokens == null))
+                if ((_Token == null))
                 {
-                    _Tokens = base.CreateObjectSet<Token>("Tokens");
+                    _Token = base.CreateObjectSet<Token>("Token");
                 }
-                return _Tokens;
+                return _Token;
             }
         }
-        private ObjectSet<Token> _Tokens;
+        private ObjectSet<Token> _Token;
 
         #endregion
 
         #region Методы AddTo
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Activities. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Activity. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToActivities(Activity activity)
+        public void AddToActivity(Activity activity)
         {
-            base.AddObject("Activities", activity);
+            base.AddObject("Activity", activity);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet BadRegistries. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet BadRegistry. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToBadRegistries(BadRegistry badRegistry)
+        public void AddToBadRegistry(BadRegistry badRegistry)
         {
-            base.AddObject("BadRegistries", badRegistry);
+            base.AddObject("BadRegistry", badRegistry);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet ChosenRecruits. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet ChosenRecruit. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToChosenRecruits(ChosenRecruit chosenRecruit)
+        public void AddToChosenRecruit(ChosenRecruit chosenRecruit)
         {
-            base.AddObject("ChosenRecruits", chosenRecruit);
+            base.AddObject("ChosenRecruit", chosenRecruit);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Competencies. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Competency. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToCompetencies(Competency competency)
+        public void AddToCompetency(Competency competency)
         {
-            base.AddObject("Competencies", competency);
+            base.AddObject("Competency", competency);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Departments. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Department. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToDepartments(Department department)
+        public void AddToDepartment(Department department)
         {
-            base.AddObject("Departments", department);
+            base.AddObject("Department", department);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Deputies. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Deputy. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToDeputies(Deputy deputy)
+        public void AddToDeputy(Deputy deputy)
         {
-            base.AddObject("Deputies", deputy);
+            base.AddObject("Deputy", deputy);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Dismissals. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Dismissal. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToDismissals(Dismissal dismissal)
+        public void AddToDismissal(Dismissal dismissal)
         {
-            base.AddObject("Dismissals", dismissal);
+            base.AddObject("Dismissal", dismissal);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet DriverLicenses. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet DriverLicense. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToDriverLicenses(DriverLicense driverLicense)
+        public void AddToDriverLicense(DriverLicense driverLicense)
         {
-            base.AddObject("DriverLicenses", driverLicense);
+            base.AddObject("DriverLicense", driverLicense);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet DutyForms. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet DutyForm. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToDutyForms(DutyForm dutyForm)
+        public void AddToDutyForm(DutyForm dutyForm)
         {
-            base.AddObject("DutyForms", dutyForm);
+            base.AddObject("DutyForm", dutyForm);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Echelons. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Echelon. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToEchelons(Echelon echelon)
+        public void AddToEchelon(Echelon echelon)
         {
-            base.AddObject("Echelons", echelon);
+            base.AddObject("Echelon", echelon);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Educations. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Education. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToEducations(Education education)
+        public void AddToEducation(Education education)
         {
-            base.AddObject("Educations", education);
+            base.AddObject("Education", education);
         }
     
         /// <summary>
         /// Устаревший метод для добавления новых объектов в набор EntitySet FamilyStatus. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToFamilyStatus(FamilyStatu familyStatu)
+        public void AddToFamilyStatus(FamilyStatus familyStatus)
         {
-            base.AddObject("FamilyStatus", familyStatu);
+            base.AddObject("FamilyStatus", familyStatus);
         }
     
         /// <summary>
         /// Устаревший метод для добавления новых объектов в набор EntitySet MarriageStatus. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToMarriageStatus(MarriageStatu marriageStatu)
+        public void AddToMarriageStatus(MarriageStatus marriageStatus)
         {
-            base.AddObject("MarriageStatus", marriageStatu);
+            base.AddObject("MarriageStatus", marriageStatus);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet MedicineCategories. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet MedicineCategory. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToMedicineCategories(MedicineCategory medicineCategory)
+        public void AddToMedicineCategory(MedicineCategory medicineCategory)
         {
-            base.AddObject("MedicineCategories", medicineCategory);
+            base.AddObject("MedicineCategory", medicineCategory);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet MedicineDegrees. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet MedicineDegree. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToMedicineDegrees(MedicineDegree medicineDegree)
+        public void AddToMedicineDegree(MedicineDegree medicineDegree)
         {
-            base.AddObject("MedicineDegrees", medicineDegree);
+            base.AddObject("MedicineDegree", medicineDegree);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet MilitaryCertificates. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet MilitaryCertificate. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToMilitaryCertificates(MilitaryCertificate militaryCertificate)
+        public void AddToMilitaryCertificate(MilitaryCertificate militaryCertificate)
         {
-            base.AddObject("MilitaryCertificates", militaryCertificate);
+            base.AddObject("MilitaryCertificate", militaryCertificate);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet MilitaryDistricts. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet MilitaryDistrict. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToMilitaryDistricts(MilitaryDistrict militaryDistrict)
+        public void AddToMilitaryDistrict(MilitaryDistrict militaryDistrict)
         {
-            base.AddObject("MilitaryDistricts", militaryDistrict);
+            base.AddObject("MilitaryDistrict", militaryDistrict);
         }
     
         /// <summary>
         /// Устаревший метод для добавления новых объектов в набор EntitySet MilitaryForces. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToMilitaryForces(MilitaryForce militaryForce)
+        public void AddToMilitaryForces(MilitaryForces militaryForces)
         {
-            base.AddObject("MilitaryForces", militaryForce);
+            base.AddObject("MilitaryForces", militaryForces);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet MilitaryTitles. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet MilitaryTitle. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToMilitaryTitles(MilitaryTitle militaryTitle)
+        public void AddToMilitaryTitle(MilitaryTitle militaryTitle)
         {
-            base.AddObject("MilitaryTitles", militaryTitle);
+            base.AddObject("MilitaryTitle", militaryTitle);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet MilitaryUnits. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet MilitaryUnit. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToMilitaryUnits(MilitaryUnit militaryUnit)
+        public void AddToMilitaryUnit(MilitaryUnit militaryUnit)
         {
-            base.AddObject("MilitaryUnits", militaryUnit);
+            base.AddObject("MilitaryUnit", militaryUnit);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet NeuroPsychicStabilities. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet NeuroPsychicStability. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToNeuroPsychicStabilities(NeuroPsychicStability neuroPsychicStability)
+        public void AddToNeuroPsychicStability(NeuroPsychicStability neuroPsychicStability)
         {
-            base.AddObject("NeuroPsychicStabilities", neuroPsychicStability);
+            base.AddObject("NeuroPsychicStability", neuroPsychicStability);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet OrderSoldiers. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet OrderSoldier. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToOrderSoldiers(OrderSoldier orderSoldier)
+        public void AddToOrderSoldier(OrderSoldier orderSoldier)
         {
-            base.AddObject("OrderSoldiers", orderSoldier);
+            base.AddObject("OrderSoldier", orderSoldier);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Permissions. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Permission. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToPermissions(Permission permission)
+        public void AddToPermission(Permission permission)
         {
-            base.AddObject("Permissions", permission);
+            base.AddObject("Permission", permission);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet PermissionForms. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet PermissionForm. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToPermissionForms(PermissionForm permissionForm)
+        public void AddToPermissionForm(PermissionForm permissionForm)
         {
-            base.AddObject("PermissionForms", permissionForm);
+            base.AddObject("PermissionForm", permissionForm);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Phones. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Phone. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToPhones(Phone phone)
+        public void AddToPhone(Phone phone)
         {
-            base.AddObject("Phones", phone);
+            base.AddObject("Phone", phone);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Railroads. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Railroad. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToRailroads(Railroad railroad)
+        public void AddToRailroad(Railroad railroad)
         {
-            base.AddObject("Railroads", railroad);
+            base.AddObject("Railroad", railroad);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Recruits. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Recruit. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToRecruits(Recruit recruit)
+        public void AddToRecruit(Recruit recruit)
         {
-            base.AddObject("Recruits", recruit);
+            base.AddObject("Recruit", recruit);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet RecruitsLogs. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet RecruitsLog. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToRecruitsLogs(RecruitsLog recruitsLog)
+        public void AddToRecruitsLog(RecruitsLog recruitsLog)
         {
-            base.AddObject("RecruitsLogs", recruitsLog);
+            base.AddObject("RecruitsLog", recruitsLog);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet RecruitSports. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet RecruitSport. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToRecruitSports(RecruitSport recruitSport)
+        public void AddToRecruitSport(RecruitSport recruitSport)
         {
-            base.AddObject("RecruitSports", recruitSport);
+            base.AddObject("RecruitSport", recruitSport);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Relatives. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Relative. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToRelatives(Relative relative)
+        public void AddToRelative(Relative relative)
         {
-            base.AddObject("Relatives", relative);
+            base.AddObject("Relative", relative);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Returns. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Return. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToReturns(Return @return)
+        public void AddToReturn(Return @return)
         {
-            base.AddObject("Returns", @return);
+            base.AddObject("Return", @return);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Seasons. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Season. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToSeasons(Season season)
+        public void AddToSeason(Season season)
         {
-            base.AddObject("Seasons", season);
+            base.AddObject("Season", season);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet SelfDesiredAbsences. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet SelfDesiredAbsence. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToSelfDesiredAbsences(SelfDesiredAbsence selfDesiredAbsence)
+        public void AddToSelfDesiredAbsence(SelfDesiredAbsence selfDesiredAbsence)
         {
-            base.AddObject("SelfDesiredAbsences", selfDesiredAbsence);
+            base.AddObject("SelfDesiredAbsence", selfDesiredAbsence);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Specialities. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Speciality. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToSpecialities(Speciality speciality)
+        public void AddToSpeciality(Speciality speciality)
         {
-            base.AddObject("Specialities", speciality);
+            base.AddObject("Speciality", speciality);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet SportCategories. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet SportCategory. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToSportCategories(SportCategory sportCategory)
+        public void AddToSportCategory(SportCategory sportCategory)
         {
-            base.AddObject("SportCategories", sportCategory);
+            base.AddObject("SportCategory", sportCategory);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet SportTypes. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet SportType. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToSportTypes(SportType sportType)
+        public void AddToSportType(SportType sportType)
         {
-            base.AddObject("SportTypes", sportType);
+            base.AddObject("SportType", sportType);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Squads. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Squad. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToSquads(Squad squad)
+        public void AddToSquad(Squad squad)
         {
-            base.AddObject("Squads", squad);
+            base.AddObject("Squad", squad);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet SquadDuties. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet SquadDuty. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToSquadDuties(SquadDuty squadDuty)
+        public void AddToSquadDuty(SquadDuty squadDuty)
         {
-            base.AddObject("SquadDuties", squadDuty);
+            base.AddObject("SquadDuty", squadDuty);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Squadrons. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Squadron. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToSquadrons(Squadron squadron)
+        public void AddToSquadron(Squadron squadron)
         {
-            base.AddObject("Squadrons", squadron);
+            base.AddObject("Squadron", squadron);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Stations. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Station. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToStations(Station station)
+        public void AddToStation(Station station)
         {
-            base.AddObject("Stations", station);
+            base.AddObject("Station", station);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet TDTs. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet TDT. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToTDTs(TDT tDT)
+        public void AddToTDT(TDT tDT)
         {
-            base.AddObject("TDTs", tDT);
+            base.AddObject("TDT", tDT);
         }
     
         /// <summary>
-        /// Устаревший метод для добавления новых объектов в набор EntitySet Tokens. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Token. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
         /// </summary>
-        public void AddToTokens(Token token)
+        public void AddToToken(Token token)
         {
-            base.AddObject("Tokens", token);
+            base.AddObject("Token", token);
         }
 
         #endregion
@@ -1229,7 +1229,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_Activity", "Recruit")]
-        public EntityCollection<Recruit> Recruits
+        public EntityCollection<Recruit> Recruit
         {
             get
             {
@@ -1338,7 +1338,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_BadRegistry", "Recruit")]
-        public EntityCollection<Recruit> Recruits
+        public EntityCollection<Recruit> Recruit
         {
             get
             {
@@ -1840,7 +1840,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_Competency", "Recruit")]
-        public EntityCollection<Recruit> Recruits
+        public EntityCollection<Recruit> Recruit
         {
             get
             {
@@ -1873,14 +1873,14 @@ namespace FormDatabaseConverter.EntityModel
         /// Создание нового объекта Department.
         /// </summary>
         /// <param name="id">Исходное значение свойства ID.</param>
-        /// <param name="nameFull">Исходное значение свойства NameFull.</param>
-        /// <param name="shortcut">Исходное значение свойства Shortcut.</param>
-        public static Department CreateDepartment(global::System.Int32 id, global::System.String nameFull, global::System.Int32 shortcut)
+        /// <param name="nameShort">Исходное значение свойства NameShort.</param>
+        /// <param name="season_ID">Исходное значение свойства Season_ID.</param>
+        public static Department CreateDepartment(global::System.Int32 id, global::System.String nameShort, global::System.Int32 season_ID)
         {
             Department department = new Department();
             department.ID = id;
-            department.NameFull = nameFull;
-            department.Shortcut = shortcut;
+            department.NameShort = nameShort;
+            department.Season_ID = season_ID;
             return department;
         }
 
@@ -1918,7 +1918,7 @@ namespace FormDatabaseConverter.EntityModel
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String NameShort
         {
@@ -1930,7 +1930,7 @@ namespace FormDatabaseConverter.EntityModel
             {
                 OnNameShortChanging(value);
                 ReportPropertyChanging("NameShort");
-                _NameShort = StructuralObject.SetValidValue(value, true);
+                _NameShort = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("NameShort");
                 OnNameShortChanged();
             }
@@ -1942,7 +1942,7 @@ namespace FormDatabaseConverter.EntityModel
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String NameFull
         {
@@ -1954,7 +1954,7 @@ namespace FormDatabaseConverter.EntityModel
             {
                 OnNameFullChanging(value);
                 ReportPropertyChanging("NameFull");
-                _NameFull = StructuralObject.SetValidValue(value, false);
+                _NameFull = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("NameFull");
                 OnNameFullChanged();
             }
@@ -1966,9 +1966,9 @@ namespace FormDatabaseConverter.EntityModel
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 Shortcut
+        public Nullable<global::System.Int32> Shortcut
         {
             get
             {
@@ -1983,16 +1983,16 @@ namespace FormDatabaseConverter.EntityModel
                 OnShortcutChanged();
             }
         }
-        private global::System.Int32 _Shortcut;
-        partial void OnShortcutChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _Shortcut;
+        partial void OnShortcutChanging(Nullable<global::System.Int32> value);
         partial void OnShortcutChanged();
     
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Season_ID
+        public global::System.Int32 Season_ID
         {
             get
             {
@@ -2007,8 +2007,8 @@ namespace FormDatabaseConverter.EntityModel
                 OnSeason_IDChanged();
             }
         }
-        private Nullable<global::System.Int32> _Season_ID;
-        partial void OnSeason_IDChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _Season_ID;
+        partial void OnSeason_IDChanging(global::System.Int32 value);
         partial void OnSeason_IDChanged();
 
         #endregion
@@ -2023,7 +2023,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_ChosenRecruit_Department", "ChosenRecruit")]
-        public EntityCollection<ChosenRecruit> ChosenRecruits
+        public EntityCollection<ChosenRecruit> ChosenRecruit
         {
             get
             {
@@ -2083,7 +2083,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_Department", "Recruit")]
-        public EntityCollection<Recruit> Recruits
+        public EntityCollection<Recruit> Recruit
         {
             get
             {
@@ -2242,7 +2242,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_MilitaryCertificate_Deputy", "MilitaryCertificate")]
-        public EntityCollection<MilitaryCertificate> MilitaryCertificates
+        public EntityCollection<MilitaryCertificate> MilitaryCertificate
         {
             get
             {
@@ -2264,7 +2264,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Squad_Deputy", "Squad")]
-        public EntityCollection<Squad> Squads
+        public EntityCollection<Squad> Squad
         {
             get
             {
@@ -2887,7 +2887,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_DutyForm", "Recruit")]
-        public EntityCollection<Recruit> Recruits
+        public EntityCollection<Recruit> Recruit
         {
             get
             {
@@ -2909,7 +2909,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_SquadDuty_DutyForm", "SquadDuty")]
-        public EntityCollection<SquadDuty> SquadDuties
+        public EntityCollection<SquadDuty> SquadDuty
         {
             get
             {
@@ -3018,7 +3018,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Squad_Echelon", "Squad")]
-        public EntityCollection<Squad> Squads
+        public EntityCollection<Squad> Squad
         {
             get
             {
@@ -3127,7 +3127,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_Education", "Recruit")]
-        public EntityCollection<Recruit> Recruits
+        public EntityCollection<Recruit> Recruit
         {
             get
             {
@@ -3149,24 +3149,24 @@ namespace FormDatabaseConverter.EntityModel
     /// <summary>
     /// Нет доступной документации по метаданным.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BrandNewModel", Name="FamilyStatu")]
+    [EdmEntityTypeAttribute(NamespaceName="BrandNewModel", Name="FamilyStatus")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class FamilyStatu : EntityObject
+    public partial class FamilyStatus : EntityObject
     {
         #region Фабричный метод
     
         /// <summary>
-        /// Создание нового объекта FamilyStatu.
+        /// Создание нового объекта FamilyStatus.
         /// </summary>
         /// <param name="id">Исходное значение свойства ID.</param>
         /// <param name="name">Исходное значение свойства Name.</param>
-        public static FamilyStatu CreateFamilyStatu(global::System.Int32 id, global::System.String name)
+        public static FamilyStatus CreateFamilyStatus(global::System.Int32 id, global::System.String name)
         {
-            FamilyStatu familyStatu = new FamilyStatu();
-            familyStatu.ID = id;
-            familyStatu.Name = name;
-            return familyStatu;
+            FamilyStatus familyStatus = new FamilyStatus();
+            familyStatus.ID = id;
+            familyStatus.Name = name;
+            return familyStatus;
         }
 
         #endregion
@@ -3236,7 +3236,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_FamilyStatus", "Recruit")]
-        public EntityCollection<Recruit> Recruits
+        public EntityCollection<Recruit> Recruit
         {
             get
             {
@@ -3258,24 +3258,24 @@ namespace FormDatabaseConverter.EntityModel
     /// <summary>
     /// Нет доступной документации по метаданным.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BrandNewModel", Name="MarriageStatu")]
+    [EdmEntityTypeAttribute(NamespaceName="BrandNewModel", Name="MarriageStatus")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class MarriageStatu : EntityObject
+    public partial class MarriageStatus : EntityObject
     {
         #region Фабричный метод
     
         /// <summary>
-        /// Создание нового объекта MarriageStatu.
+        /// Создание нового объекта MarriageStatus.
         /// </summary>
         /// <param name="id">Исходное значение свойства ID.</param>
         /// <param name="name">Исходное значение свойства Name.</param>
-        public static MarriageStatu CreateMarriageStatu(global::System.Int32 id, global::System.String name)
+        public static MarriageStatus CreateMarriageStatus(global::System.Int32 id, global::System.String name)
         {
-            MarriageStatu marriageStatu = new MarriageStatu();
-            marriageStatu.ID = id;
-            marriageStatu.Name = name;
-            return marriageStatu;
+            MarriageStatus marriageStatus = new MarriageStatus();
+            marriageStatus.ID = id;
+            marriageStatus.Name = name;
+            return marriageStatus;
         }
 
         #endregion
@@ -3345,7 +3345,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_MarriageStatus", "Recruit")]
-        public EntityCollection<Recruit> Recruits
+        public EntityCollection<Recruit> Recruit
         {
             get
             {
@@ -3454,7 +3454,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_MedicineCategory", "Recruit")]
-        public EntityCollection<Recruit> Recruits
+        public EntityCollection<Recruit> Recruit
         {
             get
             {
@@ -3563,7 +3563,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_MedicineDegree", "Recruit")]
-        public EntityCollection<Recruit> Recruits
+        public EntityCollection<Recruit> Recruit
         {
             get
             {
@@ -4041,7 +4041,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Station_MilitaryDistrict", "Station")]
-        public EntityCollection<Station> Stations
+        public EntityCollection<Station> Station
         {
             get
             {
@@ -4063,24 +4063,24 @@ namespace FormDatabaseConverter.EntityModel
     /// <summary>
     /// Нет доступной документации по метаданным.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BrandNewModel", Name="MilitaryForce")]
+    [EdmEntityTypeAttribute(NamespaceName="BrandNewModel", Name="MilitaryForces")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class MilitaryForce : EntityObject
+    public partial class MilitaryForces : EntityObject
     {
         #region Фабричный метод
     
         /// <summary>
-        /// Создание нового объекта MilitaryForce.
+        /// Создание нового объекта MilitaryForces.
         /// </summary>
         /// <param name="id">Исходное значение свойства ID.</param>
         /// <param name="name">Исходное значение свойства Name.</param>
-        public static MilitaryForce CreateMilitaryForce(global::System.Int32 id, global::System.String name)
+        public static MilitaryForces CreateMilitaryForces(global::System.Int32 id, global::System.String name)
         {
-            MilitaryForce militaryForce = new MilitaryForce();
-            militaryForce.ID = id;
-            militaryForce.Name = name;
-            return militaryForce;
+            MilitaryForces militaryForces = new MilitaryForces();
+            militaryForces.ID = id;
+            militaryForces.Name = name;
+            return militaryForces;
         }
 
         #endregion
@@ -4174,7 +4174,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_MilitaryUnit_MilitaryForces", "MilitaryUnit")]
-        public EntityCollection<MilitaryUnit> MilitaryUnits
+        public EntityCollection<MilitaryUnit> MilitaryUnit
         {
             get
             {
@@ -4335,7 +4335,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_MilitaryCertificate_MilitaryTitle", "MilitaryCertificate")]
-        public EntityCollection<MilitaryCertificate> MilitaryCertificates
+        public EntityCollection<MilitaryCertificate> MilitaryCertificate
         {
             get
             {
@@ -4548,15 +4548,15 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_MilitaryUnit_MilitaryForces", "MilitaryForces")]
-        public MilitaryForce MilitaryForce
+        public MilitaryForces MilitaryForces
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MilitaryForce>("BrandNewModel.FK_MilitaryUnit_MilitaryForces", "MilitaryForces").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MilitaryForces>("BrandNewModel.FK_MilitaryUnit_MilitaryForces", "MilitaryForces").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MilitaryForce>("BrandNewModel.FK_MilitaryUnit_MilitaryForces", "MilitaryForces").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MilitaryForces>("BrandNewModel.FK_MilitaryUnit_MilitaryForces", "MilitaryForces").Value = value;
             }
         }
         /// <summary>
@@ -4564,17 +4564,17 @@ namespace FormDatabaseConverter.EntityModel
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<MilitaryForce> MilitaryForceReference
+        public EntityReference<MilitaryForces> MilitaryForcesReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MilitaryForce>("BrandNewModel.FK_MilitaryUnit_MilitaryForces", "MilitaryForces");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MilitaryForces>("BrandNewModel.FK_MilitaryUnit_MilitaryForces", "MilitaryForces");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MilitaryForce>("BrandNewModel.FK_MilitaryUnit_MilitaryForces", "MilitaryForces", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MilitaryForces>("BrandNewModel.FK_MilitaryUnit_MilitaryForces", "MilitaryForces", value);
                 }
             }
         }
@@ -4624,7 +4624,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Phone_MilitaryUnit", "Phone")]
-        public EntityCollection<Phone> Phones
+        public EntityCollection<Phone> Phone
         {
             get
             {
@@ -4646,7 +4646,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Squadron_MilitaryUnit", "Squadron")]
-        public EntityCollection<Squadron> Squadrons
+        public EntityCollection<Squadron> Squadron
         {
             get
             {
@@ -4755,7 +4755,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_NeuroPsychicStability", "Recruit")]
-        public EntityCollection<Recruit> Recruits
+        public EntityCollection<Recruit> Recruit
         {
             get
             {
@@ -4890,7 +4890,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Squad_OrderSoldier", "Squad")]
-        public EntityCollection<Squad> Squads
+        public EntityCollection<Squad> Squad
         {
             get
             {
@@ -5240,7 +5240,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_DutyForm_PermissionForm", "DutyForm")]
-        public EntityCollection<DutyForm> DutyForms
+        public EntityCollection<DutyForm> DutyForm
         {
             get
             {
@@ -5262,7 +5262,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Permission_PermissionForm", "Permission")]
-        public EntityCollection<Permission> Permissions
+        public EntityCollection<Permission> Permission
         {
             get
             {
@@ -5546,7 +5546,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Station_Railroad", "Station")]
-        public EntityCollection<Station> Stations
+        public EntityCollection<Station> Station
         {
             get
             {
@@ -6815,7 +6815,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_ChosenRecruit_Recruit", "ChosenRecruit")]
-        public EntityCollection<ChosenRecruit> ChosenRecruits
+        public EntityCollection<ChosenRecruit> ChosenRecruit
         {
             get
             {
@@ -6913,7 +6913,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Dismissal_Recruit", "Dismissal")]
-        public EntityCollection<Dismissal> Dismissals
+        public EntityCollection<Dismissal> Dismissal
         {
             get
             {
@@ -6935,7 +6935,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_DriverLicense_Recruit", "DriverLicense")]
-        public EntityCollection<DriverLicense> DriverLicenses
+        public EntityCollection<DriverLicense> DriverLicense
         {
             get
             {
@@ -7033,15 +7033,15 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_FamilyStatus", "FamilyStatus")]
-        public FamilyStatu FamilyStatu
+        public FamilyStatus FamilyStatus
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FamilyStatu>("BrandNewModel.FK_Recruit_FamilyStatus", "FamilyStatus").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FamilyStatus>("BrandNewModel.FK_Recruit_FamilyStatus", "FamilyStatus").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FamilyStatu>("BrandNewModel.FK_Recruit_FamilyStatus", "FamilyStatus").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FamilyStatus>("BrandNewModel.FK_Recruit_FamilyStatus", "FamilyStatus").Value = value;
             }
         }
         /// <summary>
@@ -7049,17 +7049,17 @@ namespace FormDatabaseConverter.EntityModel
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<FamilyStatu> FamilyStatuReference
+        public EntityReference<FamilyStatus> FamilyStatusReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FamilyStatu>("BrandNewModel.FK_Recruit_FamilyStatus", "FamilyStatus");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FamilyStatus>("BrandNewModel.FK_Recruit_FamilyStatus", "FamilyStatus");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FamilyStatu>("BrandNewModel.FK_Recruit_FamilyStatus", "FamilyStatus", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FamilyStatus>("BrandNewModel.FK_Recruit_FamilyStatus", "FamilyStatus", value);
                 }
             }
         }
@@ -7071,15 +7071,15 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_MarriageStatus", "MarriageStatus")]
-        public MarriageStatu MarriageStatu
+        public MarriageStatus MarriageStatus
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MarriageStatu>("BrandNewModel.FK_Recruit_MarriageStatus", "MarriageStatus").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MarriageStatus>("BrandNewModel.FK_Recruit_MarriageStatus", "MarriageStatus").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MarriageStatu>("BrandNewModel.FK_Recruit_MarriageStatus", "MarriageStatus").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MarriageStatus>("BrandNewModel.FK_Recruit_MarriageStatus", "MarriageStatus").Value = value;
             }
         }
         /// <summary>
@@ -7087,17 +7087,17 @@ namespace FormDatabaseConverter.EntityModel
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<MarriageStatu> MarriageStatuReference
+        public EntityReference<MarriageStatus> MarriageStatusReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MarriageStatu>("BrandNewModel.FK_Recruit_MarriageStatus", "MarriageStatus");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MarriageStatus>("BrandNewModel.FK_Recruit_MarriageStatus", "MarriageStatus");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MarriageStatu>("BrandNewModel.FK_Recruit_MarriageStatus", "MarriageStatus", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MarriageStatus>("BrandNewModel.FK_Recruit_MarriageStatus", "MarriageStatus", value);
                 }
             }
         }
@@ -7223,7 +7223,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Permission_Recruit", "Permission")]
-        public EntityCollection<Permission> Permissions
+        public EntityCollection<Permission> Permission
         {
             get
             {
@@ -7359,7 +7359,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_RecruitsLog_Recruit", "RecruitsLog")]
-        public EntityCollection<RecruitsLog> RecruitsLogs
+        public EntityCollection<RecruitsLog> RecruitsLog
         {
             get
             {
@@ -7381,7 +7381,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_RecruitSport_Recruit", "RecruitSport")]
-        public EntityCollection<RecruitSport> RecruitSports
+        public EntityCollection<RecruitSport> RecruitSport
         {
             get
             {
@@ -7403,7 +7403,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Relative_Recruit", "Relative")]
-        public EntityCollection<Relative> Relatives
+        public EntityCollection<Relative> Relative
         {
             get
             {
@@ -7425,7 +7425,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Return_Recruit", "Return")]
-        public EntityCollection<Return> Returns
+        public EntityCollection<Return> Return
         {
             get
             {
@@ -7447,7 +7447,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_SelfDesiredAbsence_Recruit", "SelfDesiredAbsence")]
-        public EntityCollection<SelfDesiredAbsence> SelfDesiredAbsences
+        public EntityCollection<SelfDesiredAbsence> SelfDesiredAbsence
         {
             get
             {
@@ -7469,7 +7469,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Token_Recruit", "Token")]
-        public EntityCollection<Token> Tokens
+        public EntityCollection<Token> Token
         {
             get
             {
@@ -8644,7 +8644,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_ChosenRecruit_Season", "ChosenRecruit")]
-        public EntityCollection<ChosenRecruit> ChosenRecruits
+        public EntityCollection<ChosenRecruit> ChosenRecruit
         {
             get
             {
@@ -8666,7 +8666,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Department_Season", "Department")]
-        public EntityCollection<Department> Departments
+        public EntityCollection<Department> Department
         {
             get
             {
@@ -8688,7 +8688,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Squadron_Season", "Squadron")]
-        public EntityCollection<Squadron> Squadrons
+        public EntityCollection<Squadron> Squadron
         {
             get
             {
@@ -8972,7 +8972,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_Speciality", "Recruit")]
-        public EntityCollection<Recruit> Recruits
+        public EntityCollection<Recruit> Recruit
         {
             get
             {
@@ -8994,7 +8994,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "SpecialitySquadDuty", "SquadDuty")]
-        public EntityCollection<SquadDuty> SquadDuties
+        public EntityCollection<SquadDuty> SquadDuty
         {
             get
             {
@@ -9103,7 +9103,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_RecruitSport_SportCategory", "RecruitSport")]
-        public EntityCollection<RecruitSport> RecruitSports
+        public EntityCollection<RecruitSport> RecruitSport
         {
             get
             {
@@ -9212,7 +9212,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_RecruitSport_SportType", "RecruitSport")]
-        public EntityCollection<RecruitSport> RecruitSports
+        public EntityCollection<RecruitSport> RecruitSport
         {
             get
             {
@@ -9913,7 +9913,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_Squad", "Recruit")]
-        public EntityCollection<Recruit> Recruits
+        public EntityCollection<Recruit> Recruit
         {
             get
             {
@@ -9935,7 +9935,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_RecruitsLog_NewSquad", "RecruitsLog")]
-        public EntityCollection<RecruitsLog> RecruitsLogs
+        public EntityCollection<RecruitsLog> RecruitsLog
         {
             get
             {
@@ -9957,7 +9957,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_RecruitsLog_OldSquad", "RecruitsLog")]
-        public EntityCollection<RecruitsLog> RecruitsLogs1
+        public EntityCollection<RecruitsLog> RecruitsLog1
         {
             get
             {
@@ -10258,7 +10258,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Squad_SquadDuty", "Squad")]
-        public EntityCollection<Squad> Squads
+        public EntityCollection<Squad> Squad
         {
             get
             {
@@ -10280,7 +10280,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "SpecialitySquadDuty", "Speciality")]
-        public EntityCollection<Speciality> Specialities
+        public EntityCollection<Speciality> Speciality
         {
             get
             {
@@ -10567,7 +10567,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Squad_Squadron", "Squad")]
-        public EntityCollection<Squad> Squads
+        public EntityCollection<Squad> Squad
         {
             get
             {
@@ -10766,7 +10766,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_MilitaryUnit_Station", "MilitaryUnit")]
-        public EntityCollection<MilitaryUnit> MilitaryUnits
+        public EntityCollection<MilitaryUnit> MilitaryUnit
         {
             get
             {
@@ -11173,7 +11173,7 @@ namespace FormDatabaseConverter.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BrandNewModel", "FK_Recruit_TDT", "Recruit")]
-        public EntityCollection<Recruit> Recruits
+        public EntityCollection<Recruit> Recruit
         {
             get
             {

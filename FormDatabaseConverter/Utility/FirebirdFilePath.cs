@@ -8,9 +8,39 @@ namespace FormDatabaseConverter.Utility
 {
     public class FirebirdFilePath
     {
+
         private string dbExtension = Properties.Settings.Default.DBExtension;
         private string driveLetter = Properties.Settings.Default.InternalDriveLetter;
         private string serverAddress = Properties.Settings.Default.ExternalServerAddress;
+
+        private static string _originalConnectionString;
+        public static string OriginalConnectionString
+        {
+            get { return _originalConnectionString; }
+            set { _originalConnectionString = value; }
+        }
+
+        private static string _originalPath;
+        public static string OriginalPath
+        {
+            get { return _originalPath; }
+            set { _originalPath = value; }
+        }
+
+        private string _connectionString;
+        public string ConnectionString
+        {
+            get
+            {
+                //if (string.IsNullOrEmpty(_connectionString))
+                //{
+                //    string oldPair = Regex.Match(OriginalConnectionString, @"(?:database=).+?(?=;)").Value;
+                //    _connectionString = OriginalConnectionString.Replace(oldPair, "database=" + InternalPath);
+
+                //}
+                return _connectionString;
+            }
+        }
 
         private string _path;
         public string Path
@@ -41,6 +71,9 @@ namespace FormDatabaseConverter.Utility
         }
 
         //private string _internalPath;
+        /// <summary>
+        /// _internalDirectory + _fileName + dbExtension
+        /// </summary>
         public string InternalPath
         {
             get { return _internalDirectory + _fileName + dbExtension; }
@@ -67,22 +100,37 @@ namespace FormDatabaseConverter.Utility
 
         }
 
-        public FirebirdFilePath(string generalDBConnectionString)
+        /// <summary>
+        /// Конструктор однако.
+        /// Если знаем путь к файлу, создаем запись по пути, если не знаем, то по ConnectionString
+        /// </summary>
+        /// <param name="param">Либо ConnectionString, либо Path, в зависимости от isFromConnectionString</param>
+        /// <param name="isFromConnectionString">Если true, то ConnectionString, иначе - ConnectionString</param>
+        public FirebirdFilePath(string param, bool isFromConnectionString)
         {
-            string dbPair;
-            try
+            if (isFromConnectionString)
             {
-                dbPair = Regex.Match(generalDBConnectionString, @"(?:database=).+?(?=;)").Value;
-                _path = dbPair.Split('=')[1];
+                try
+                {
+                    _path = Regex.Match(param, @"(?:database=)(?<thisone>.+?)(?=;)").Groups["thisone"].Value;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("В строке подключения не найден путь к базе данных" +
+                        " ('database=DatabaseAddressHere')\nТекст ошибки:\n", ex);
+                }
+
+                if (string.IsNullOrEmpty(_originalConnectionString))
+                {
+                    _originalConnectionString = param;
+                    _originalPath = _path;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                throw;
-                //MessageBox.Show("В строке подключения не найден путь к базе данных" +
-                //    " ('database=DatabaseAddressHere')\nТекст ошибки:\n"
-                //    + ex.Message);
-                //return;
+                _path = param;
             }
+
 
             _fileName = Regex.Match(_path, @"[^\\]+(?=" + Regex.Escape(dbExtension) + ")").Value;
 
@@ -109,6 +157,7 @@ namespace FormDatabaseConverter.Utility
             _year = Regex.Match(Regex.Escape(numbers[0]), @"\d+").Value;
             _number = numbers[1];
 
+            _connectionString = _originalConnectionString.Replace(_originalPath, InternalPath);
         }
 
     }
