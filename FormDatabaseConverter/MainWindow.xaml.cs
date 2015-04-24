@@ -23,16 +23,16 @@ namespace FormDatabaseConverter
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<MilitaryForces> mForces;
-        private List<MilitaryDistrict> mDistricts;
-        private List<MilitaryTitle> mTitles;
-        private List<Activity> activities;
-        private List<Station> stations;
-        private List<BadRegistry> badRegistries;
-        private List<Education> educations;
-        private List<Railroad> railroads;
-        private List<Department> departments;
-        private List<MarriageStatus> marriage;
+        //private List<MilitaryForces> mForces;
+        //private List<MilitaryDistrict> mDistricts;
+        //private List<MilitaryTitle> mTitles;
+        //private List<Activity> activities;
+        //private List<Station> stations;
+        //private List<BadRegistry> badRegistries;
+        //private List<Education> educations;
+        //private List<Railroad> railroads;
+        //private List<Department> departments;
+        //private List<MarriageStatus> marriage;
 
         public MainWindow()
         {
