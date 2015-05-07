@@ -124,7 +124,6 @@ namespace FormDatabaseConverter
                     }
                 }
 
-                //TODO : добавить в таблицу Identity
                 ctxg.SaveChanges();
             }
 
