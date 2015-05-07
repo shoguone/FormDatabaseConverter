@@ -15,6 +15,7 @@ using FormDatabaseConverter.EntityModel;
 using FormDatabaseConverter.Utility;
 using System.IO;
 using System.Configuration;
+using System.Reflection;
 
 namespace FormDatabaseConverter
 {
@@ -60,6 +61,7 @@ namespace FormDatabaseConverter
             //        .ToList();
 
             //}
+
 
             Init();
         }

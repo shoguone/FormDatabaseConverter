@@ -1,0 +1,74 @@
+﻿<#@ template debug="True" hostspecific="True" language="C#" #>
+<#@ assembly name="$(SolutionDir)FormDatabaseConverter\bin\Debug\FormDatabaseConverter.exe" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data.Entity" #>
+<#@ import namespace="FormDatabaseConverter.EntityModel" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.Objects.DataClasses" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Reflection" #>
+<#@ output extension=".cs" #>
+using FormDatabaseConverter.EntityModel;
+using FormDatabaseConverter.Utility;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace FormDatabaseConverter.Templates
+{
+    public class FillTablesGenerator
+    {
+<#
+	var assembly = typeof(BrandNewContext).Assembly;
+	var types0 = assembly.GetTypes();
+	List<Type> types = types0
+		.Where(t => IsInModel(t))
+		.ToList();
+
+	foreach (Type type in types) {
+	#>
+        private void Fill<#= type.Name #>(FirebirdFilePath dbFile)
+        {
+            List<VID_VS> entities;
+            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            {
+                entities = ctxFB.VID_VS.ToList();
+            }
+
+            using (BrandNewContext ctxg = new BrandNewContext())
+            {
+                foreach (var entity in entities)
+                {
+                    if (!ctxg.<#= type.Name #>.Any(e => e.Name.Equals(entity.NAME)))
+                    {
+                        ctxg.<#= type.Name #>.AddObject(new <#= type.Name #>() { Name = entity.NAME });
+                    }
+                }
+
+                ctxg.SaveChanges();
+            }
+
+        }
+
+<# } #>
+    }
+}
+
+<#+
+string ns = "FormDatabaseConverter.EntityModel";
+string model = "BrandNewModel";
+
+bool IsInModel(Type t)
+{
+    if (!t.IsClass || !t.Namespace.Equals(ns))
+        return false;
+
+    var a = (EdmEntityTypeAttribute)Attribute.GetCustomAttribute(t, typeof(EdmEntityTypeAttribute));
+    if (a == null)
+        return false;
+            
+    return a.NamespaceName.Equals(model);
+}
+
+#>
