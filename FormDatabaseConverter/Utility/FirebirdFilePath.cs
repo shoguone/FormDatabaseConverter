@@ -79,18 +79,32 @@ namespace FormDatabaseConverter.Utility
             get { return _internalDirectory + _fileName + dbExtension; }
         }
 
-        private string _year;
-        public string Year
+        private int _year;
+        public int Year
         {
             get { return _year; }
             set { _year = value; }
         }
 
-        private string _number;
-        public string Number
+        private int _number;
+        public int Number
         {
             get { return _number; }
             set { _number = value; }
+        }
+
+        private string _yearString;
+        public string YearString
+        {
+            get { return _yearString; }
+            set { _yearString = value; }
+        }
+
+        private string _numberString;
+        public string NumberString
+        {
+            get { return _numberString; }
+            set { _numberString = value; }
         }
 
 
@@ -154,8 +168,10 @@ namespace FormDatabaseConverter.Utility
                     numbers[0] = numbers[1] = _fileName;
                 }
             }
-            _year = Regex.Match(Regex.Escape(numbers[0]), @"\d+").Value;
-            _number = numbers[1];
+            _yearString = Regex.Match(Regex.Escape(numbers[0]), @"\d+").Value;
+            _numberString = numbers[1];
+            int.TryParse(_yearString, out _year);
+            int.TryParse(_numberString, out _number);
 
             _connectionString = _originalConnectionString.Replace(_originalPath, InternalPath);
         }

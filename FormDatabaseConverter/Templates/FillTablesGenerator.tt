@@ -1,4 +1,5 @@
-﻿<#@ template debug="True" hostspecific="True" language="C#" #>
+﻿TextTemplatingFileGenerator
+<#@ template debug="True" hostspecific="True" language="C#" #>
 <#@ assembly name="$(SolutionDir)FormDatabaseConverter\bin\Debug\FormDatabaseConverter.exe" #>
 <#@ assembly name="System.Core" #>
 <#@ assembly name="System.Data.Entity" #>
@@ -28,7 +29,7 @@ namespace FormDatabaseConverter.Templates
 
 	foreach (Type type in types) {
 	#>
-        private void Fill<#= type.Name #>(FirebirdFilePath dbFile)
+        public void Fill<#= type.Name #>(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
             using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))

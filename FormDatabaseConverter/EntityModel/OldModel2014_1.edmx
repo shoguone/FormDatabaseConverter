@@ -332,7 +332,6 @@
           <Property Name="RVK" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="KUDA" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
           <Property Name="KTO" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
-          <Property Name="IGNORE" Type="String" MaxLength="7" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="kom">
           <Key>
@@ -595,7 +594,6 @@
                 <ScalarProperty Name="RVK" ColumnName="RVK" />
                 <ScalarProperty Name="KUDA" ColumnName="KUDA" />
                 <ScalarProperty Name="KTO" ColumnName="KTO" />
-                <ScalarProperty Name="IGNORE" ColumnName="IGNORE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -61,12 +61,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Settings.cs" />
-    <None Include="Templates\FillTablesGenerator.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FillTablesGenerator.tt</DependentUpon>
-    </None>
+    <Compile Include="Utility\FillTables.cs" />
     <Compile Include="Utility\FirebirdFilePath.cs" />
+    <Compile Include="Utility\TablesEquality.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -125,8 +122,6 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Templates\FillTablesGenerator.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>FillTablesGenerator.cs</LastGenOutput>
       <FormatOutput>True</FormatOutput>
       <Parameters>&lt;%3fxml version="1.0" encoding="utf-16"%3f&gt;
 &lt;ArrayOfParameterStorage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Parameters>

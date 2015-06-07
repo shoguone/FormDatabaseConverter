@@ -21,7 +21,7 @@
       <Value Profile="(Default)">2014</Value>
     </Setting>
     <Setting Name="DefaultNumber" Type="System.String" Scope="User">
-      <Value Profile="(Default)">2</Value>
+      <Value Profile="(Default)">1</Value>
     </Setting>
   </Settings>
 </SettingsFile>

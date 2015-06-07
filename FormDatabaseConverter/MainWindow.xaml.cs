@@ -103,7 +103,10 @@ namespace FormDatabaseConverter
 
             foreach (var fbf in DBFiles)
             {
-                FillMilitaryForces(fbf);
+                //FillMilitaryForces(fbf);
+                //FillTables.FillSeason(fbf);
+                //FillTables.FillDepartment(fbf);
+                FillTables.FillChosenRecruit(fbf);
             }
 
         }

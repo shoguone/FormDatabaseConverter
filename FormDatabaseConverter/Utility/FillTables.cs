@@ -1,19 +1,19 @@
 ﻿using FormDatabaseConverter.EntityModel;
-using FormDatabaseConverter.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FormDatabaseConverter.Templates
+namespace FormDatabaseConverter.Utility
 {
-    public class FillTablesGenerator
+    public static class FillTables
     {
-        private void FillActivity(FirebirdFilePath dbFile)
+        public static void FillActivity(FirebirdFilePath dbFile)
         {
-            List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            List<DO_PRIZ> entities;
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
-                entities = ctxFB.VID_VS.ToList();
+                entities = ctxFB.DO_PRIZ.ToList();
             }
 
             using (BrandNewContext ctxg = new BrandNewContext())
@@ -31,12 +31,12 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillBadRegistry(FirebirdFilePath dbFile)
+        public static void FillBadRegistry(FirebirdFilePath dbFile)
         {
-            List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            List<NA_UCHETE> entities;
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
-                entities = ctxFB.VID_VS.ToList();
+                entities = ctxFB.NA_UCHETE.ToList();
             }
 
             using (BrandNewContext ctxg = new BrandNewContext())
@@ -54,21 +54,43 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillChosenRecruit(FirebirdFilePath dbFile)
+        public static void FillSeason(FirebirdFilePath dbFile)
         {
-            List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (BrandNewContext ctxg = new BrandNewContext())
             {
-                entities = ctxFB.VID_VS.ToList();
+                if (!ctxg.Season.Any(e => e.Year == dbFile.Year && e.Number == dbFile.Number))
+                {
+                    ctxg.Season.AddObject(new Season() { Year = dbFile.Year, Number = dbFile.Number });
+                }
+
+                ctxg.SaveChanges();
+            }
+
+        }
+
+        public static void FillDepartment(FirebirdFilePath dbFile)
+        {
+            List<RVK> entities;
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            {
+                entities = ctxFB.RVK.ToList();
             }
 
             using (BrandNewContext ctxg = new BrandNewContext())
             {
+                Season season = ctxg.Season.FirstOrDefault(s => s.Number == dbFile.Number && s.Year == dbFile.Year);
+                if (season == default(Season))
+                {
+                    season = new Season() { Number = dbFile.Number, Year = dbFile.Year };
+                }
+
                 foreach (var entity in entities)
                 {
-                    if (!ctxg.ChosenRecruit.Any(e => e.Name.Equals(entity.NAME)))
+                    if (!ctxg.Department.Any(e => e.NameShort == entity.NAME && 
+                        e.Season.Year == dbFile.Year && 
+                        e.Season.Number == dbFile.Number))
                     {
-                        ctxg.ChosenRecruit.AddObject(new ChosenRecruit() { Name = entity.NAME });
+                        ctxg.Department.AddObject(new Department() { NameShort = entity.NAME, NameFull = entity.NAME_S, Season = season });
                     }
                 }
 
@@ -77,22 +99,156 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillCompetency(FirebirdFilePath dbFile)
+        public static void FillChosenRecruit(FirebirdFilePath dbFile)
         {
-            List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            List<KN_P> entities;
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
-                entities = ctxFB.VID_VS.ToList();
+                entities = ctxFB.KN_P.ToList();
             }
 
             using (BrandNewContext ctxg = new BrandNewContext())
             {
                 foreach (var entity in entities)
                 {
-                    if (!ctxg.Competency.Any(e => e.Name.Equals(entity.NAME)))
+                    DateTime birthDate;
+                    DateTime.TryParse(entity.D_ROD, out birthDate);
+
+                    #region debugshit
+                    /*
+                    List<ChosenRecruit> a1 = new List<ChosenRecruit>();
+                    List<ChosenRecruit> a2 = new List<ChosenRecruit>();
+                    List<ChosenRecruit> a3 = new List<ChosenRecruit>();
+                    List<ChosenRecruit> a4 = new List<ChosenRecruit>();
+                    List<ChosenRecruit> a5 = new List<ChosenRecruit>();
+                    List<ChosenRecruit> a51 = new List<ChosenRecruit>();
+                    List<ChosenRecruit> a52 = new List<ChosenRecruit>();
+                    List<ChosenRecruit> a53 = new List<ChosenRecruit>();
+                    List<ChosenRecruit> a6 = new List<ChosenRecruit>();
+                    List<ChosenRecruit> a7 = new List<ChosenRecruit>();
+                    List<ChosenRecruit> a8 = new List<ChosenRecruit>();
+                    try
                     {
-                        ctxg.Competency.AddObject(new Competency() { Name = entity.NAME });
+                        a1 = ctxg.ChosenRecruit.Where(e => e.LastName == entity.FAM).ToList();
                     }
+                    catch
+                    {
+                    }
+                    try
+                    {
+                        a2 = a1.Where(e => e.FirstName == entity.IM).ToList();
+                    }
+                    catch
+                    {
+                    }
+                    try
+                    {
+                        a3 = a2.Where(e => e.MiddleName == entity.OTCH).ToList();
+                    }
+                    catch
+                    {
+                    }
+                    try
+                    {
+                        a4 = a3.Where(e => e.BirthDate.Value.Year == birthDate.Year).ToList();
+                    }
+                    catch
+                    {
+                    }
+                    try
+                    {
+                        a51 = a4.Where(e => e.Department_ID.HasValue).ToList();
+                    }
+                    catch
+                    {
+                    }
+                    try
+                    {
+                        a52 = a4.Where(e => string.IsNullOrEmpty(entity.RVK)).ToList();
+                    }
+                    catch
+                    {
+                    }
+                    //try
+                    //{
+                    //    a53 = a4.Where(e => e.Department.NameShort == entity.RVK).ToList();
+                    //}
+                    //catch
+                    //{
+                    //}
+                    try
+                    {
+                        a5 = a4.Where(e => !e.Department_ID.HasValue && string.IsNullOrEmpty(entity.RVK) || 
+                            e.Department_ID.HasValue && e.Department.NameShort == entity.RVK).ToList();
+                    }
+                    catch
+                    {
+                    }
+                    try
+                    {
+                        a6 = a5.Where(e => e.Destination == entity.KUDA).ToList();
+                    }
+                    catch
+                    {
+                    }
+                    try
+                    {
+                        a7 = a6.Where(e => string.IsNullOrEmpty(e.Patron) && string.IsNullOrEmpty(entity.KTO) || e.Patron == entity.KTO).ToList();
+                    }
+                    catch
+                    {
+                    }
+                    try
+                    {
+                        a8 = a7.Where(e => e.Season.Year == dbFile.Year && e.Season.Number == dbFile.Number).ToList();
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    */
+                    #endregion
+
+                    //if (!ctxg.ChosenRecruit.Any(e => e.Equals(entity, dbFile.Number, dbFile.Year)))
+                    if (!ctxg.ChosenRecruit.Any(e =>
+                        (string.IsNullOrEmpty(e.LastName) && string.IsNullOrEmpty(entity.FAM) || e.LastName == entity.FAM) &&
+                        (string.IsNullOrEmpty(e.FirstName) && string.IsNullOrEmpty(entity.IM) || e.FirstName == entity.IM) &&
+                        (string.IsNullOrEmpty(e.MiddleName) && string.IsNullOrEmpty(entity.OTCH) || e.MiddleName == entity.OTCH) &&
+                        (!e.BirthDate.HasValue && birthDate == null || e.BirthDate.Value.Year == birthDate.Year) &&
+                        (!e.Department_ID.HasValue && string.IsNullOrEmpty(entity.RVK) || e.Department_ID.HasValue && e.Department.NameShort == entity.RVK) &&
+                        (string.IsNullOrEmpty(e.Destination) && string.IsNullOrEmpty(entity.KUDA) || e.Destination == entity.KUDA) &&
+                        (string.IsNullOrEmpty(e.Patron) && string.IsNullOrEmpty(entity.KTO) || e.Patron == entity.KTO) &&
+                        e.Season.Year == dbFile.Year && e.Season.Number == dbFile.Number
+                        ))
+                    {
+                        Season season = ctxg.Season.FirstOrDefault(s => s.Number == dbFile.Number && s.Year == dbFile.Year);
+                        if (season == default(Season))
+                        {
+                            season = new Season() { Number = dbFile.Number, Year = dbFile.Year };
+                        }
+
+                        Department dept = ctxg.Department.FirstOrDefault(d => d.NameShort.Equals(entity.RVK) && 
+                            d.Season.Year == dbFile.Year && d.Season.Number == dbFile.Number);
+                        if (dept == default(Department))
+                        {
+                            //dept = new Department() { NameShort = entity.RVK };
+                        }
+                        
+                        ctxg.ChosenRecruit.AddObject(new ChosenRecruit()
+                        {
+                            LastName = entity.FAM,
+                            FirstName = entity.IM,
+                            MiddleName = entity.OTCH,
+                            BirthDate = birthDate,
+                            Department = dept,
+                            Destination = entity.KUDA,
+                            Patron = entity.KTO,
+                            Season = season
+                        });
+                    }
+                    //else
+                    //{
+                    //    var a = 0;
+                    //}
                 }
 
                 ctxg.SaveChanges();
@@ -100,33 +256,29 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillDepartment(FirebirdFilePath dbFile)
+        public static void FillCompetency(FirebirdFilePath dbFile)
         {
-            List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
-            {
-                entities = ctxFB.VID_VS.ToList();
-            }
-
             using (BrandNewContext ctxg = new BrandNewContext())
             {
-                foreach (var entity in entities)
+                if (ctxg.Competency.Count() < 1)
                 {
-                    if (!ctxg.Department.Any(e => e.Name.Equals(entity.NAME)))
-                    {
-                        ctxg.Department.AddObject(new Department() { Name = entity.NAME });
-                    }
+                    ctxg.Competency.AddObject(new Competency() { Name = "I" });
+                    ctxg.Competency.AddObject(new Competency() { Name = "II" });
+                    ctxg.Competency.AddObject(new Competency() { Name = "III" });
+                    ctxg.Competency.AddObject(new Competency() { Name = "IV" });
+
+                    ctxg.SaveChanges();
                 }
 
-                ctxg.SaveChanges();
             }
 
         }
 
-        private void FillDeputy(FirebirdFilePath dbFile)
+        /**
+        public static void FillDeputy(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -146,10 +298,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillDismissal(FirebirdFilePath dbFile)
+        public static void FillDismissal(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -169,10 +321,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillDriverLicense(FirebirdFilePath dbFile)
+        public static void FillDriverLicense(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -192,10 +344,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillDutyForm(FirebirdFilePath dbFile)
+        public static void FillDutyForm(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -215,10 +367,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillEchelon(FirebirdFilePath dbFile)
+        public static void FillEchelon(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -238,10 +390,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillEducation(FirebirdFilePath dbFile)
+        public static void FillEducation(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -261,10 +413,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillFamilyStatus(FirebirdFilePath dbFile)
+        public static void FillFamilyStatus(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -284,10 +436,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillMarriageStatus(FirebirdFilePath dbFile)
+        public static void FillMarriageStatus(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -307,10 +459,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillMedicineCategory(FirebirdFilePath dbFile)
+        public static void FillMedicineCategory(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -330,10 +482,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillMedicineDegree(FirebirdFilePath dbFile)
+        public static void FillMedicineDegree(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -353,10 +505,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillMilitaryCertificate(FirebirdFilePath dbFile)
+        public static void FillMilitaryCertificate(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -376,10 +528,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillMilitaryDistrict(FirebirdFilePath dbFile)
+        public static void FillMilitaryDistrict(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -399,10 +551,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillMilitaryForces(FirebirdFilePath dbFile)
+        public static void FillMilitaryForces(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -422,10 +574,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillMilitaryTitle(FirebirdFilePath dbFile)
+        public static void FillMilitaryTitle(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -445,10 +597,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillMilitaryUnit(FirebirdFilePath dbFile)
+        public static void FillMilitaryUnit(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -468,10 +620,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillNeuroPsychicStability(FirebirdFilePath dbFile)
+        public static void FillNeuroPsychicStability(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -491,10 +643,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillOrderSoldier(FirebirdFilePath dbFile)
+        public static void FillOrderSoldier(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -514,10 +666,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillPermission(FirebirdFilePath dbFile)
+        public static void FillPermission(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -537,10 +689,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillPermissionForm(FirebirdFilePath dbFile)
+        public static void FillPermissionForm(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -560,10 +712,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillPhone(FirebirdFilePath dbFile)
+        public static void FillPhone(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -583,10 +735,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillRailroad(FirebirdFilePath dbFile)
+        public static void FillRailroad(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -606,10 +758,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillRecruit(FirebirdFilePath dbFile)
+        public static void FillRecruit(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -629,10 +781,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillRecruitsLog(FirebirdFilePath dbFile)
+        public static void FillRecruitsLog(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -652,10 +804,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillRecruitSport(FirebirdFilePath dbFile)
+        public static void FillRecruitSport(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -675,10 +827,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillRelative(FirebirdFilePath dbFile)
+        public static void FillRelative(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -698,10 +850,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillReturn(FirebirdFilePath dbFile)
+        public static void FillReturn(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -721,33 +873,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillSeason(FirebirdFilePath dbFile)
+        public static void FillSelfDesiredAbsence(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
-            {
-                entities = ctxFB.VID_VS.ToList();
-            }
-
-            using (BrandNewContext ctxg = new BrandNewContext())
-            {
-                foreach (var entity in entities)
-                {
-                    if (!ctxg.Season.Any(e => e.Name.Equals(entity.NAME)))
-                    {
-                        ctxg.Season.AddObject(new Season() { Name = entity.NAME });
-                    }
-                }
-
-                ctxg.SaveChanges();
-            }
-
-        }
-
-        private void FillSelfDesiredAbsence(FirebirdFilePath dbFile)
-        {
-            List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -767,10 +896,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillSpeciality(FirebirdFilePath dbFile)
+        public static void FillSpeciality(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -790,10 +919,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillSportCategory(FirebirdFilePath dbFile)
+        public static void FillSportCategory(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -813,10 +942,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillSportType(FirebirdFilePath dbFile)
+        public static void FillSportType(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -836,10 +965,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillSquad(FirebirdFilePath dbFile)
+        public static void FillSquad(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -859,10 +988,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillSquadDuty(FirebirdFilePath dbFile)
+        public static void FillSquadDuty(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -882,10 +1011,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillSquadron(FirebirdFilePath dbFile)
+        public static void FillSquadron(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -905,10 +1034,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillStation(FirebirdFilePath dbFile)
+        public static void FillStation(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -928,10 +1057,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillTDT(FirebirdFilePath dbFile)
+        public static void FillTDT(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -951,10 +1080,10 @@ namespace FormDatabaseConverter.Templates
 
         }
 
-        private void FillToken(FirebirdFilePath dbFile)
+        public static void FillToken(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
-            using(Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
                 entities = ctxFB.VID_VS.ToList();
             }
@@ -973,6 +1102,7 @@ namespace FormDatabaseConverter.Templates
             }
 
         }
+        /**/
 
     }
 }

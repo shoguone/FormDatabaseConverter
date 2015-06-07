@@ -890,30 +890,6 @@ namespace FormDatabaseConverter.EntityModel
         private global::System.String _KTO;
         partial void OnKTOChanging(global::System.String value);
         partial void OnKTOChanged();
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String IGNORE
-        {
-            get
-            {
-                return _IGNORE;
-            }
-            set
-            {
-                OnIGNOREChanging(value);
-                ReportPropertyChanging("IGNORE");
-                _IGNORE = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("IGNORE");
-                OnIGNOREChanged();
-            }
-        }
-        private global::System.String _IGNORE;
-        partial void OnIGNOREChanging(global::System.String value);
-        partial void OnIGNOREChanged();
 
         #endregion
 
