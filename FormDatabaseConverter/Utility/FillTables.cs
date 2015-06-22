@@ -256,7 +256,7 @@ namespace FormDatabaseConverter.Utility
 
         }
 
-        public static void FillCompetency(FirebirdFilePath dbFile)
+        public static void FillCompetency()
         {
             using (BrandNewContext ctxg = new BrandNewContext())
             {
@@ -265,11 +265,162 @@ namespace FormDatabaseConverter.Utility
                     ctxg.Competency.AddObject(new Competency() { Name = "I" });
                     ctxg.Competency.AddObject(new Competency() { Name = "II" });
                     ctxg.Competency.AddObject(new Competency() { Name = "III" });
-                    ctxg.Competency.AddObject(new Competency() { Name = "IV" });
+                    //ctxg.Competency.AddObject(new Competency() { Name = "IV" });
 
                     ctxg.SaveChanges();
                 }
 
+            }
+
+        }
+
+        public static void FillMilitaryTitle()
+        {
+            using (BrandNewContext ctxg = new BrandNewContext())
+            {
+                if (ctxg.MilitaryTitle.Count() < 1)
+                {
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 1, 
+                        Land = "рядовой",
+                        Marine = "матрос"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 2,
+                        Land = "ефрейтор",
+                        Marine = "ст. матрос"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 3,
+                        Land = "мл. сержант",
+                        Marine = "старшина 2 ст."
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 4,
+                        Land = "сержант",
+                        Marine = "старшина 1 ст."
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 5,
+                        Land = "ст. сержант",
+                        Marine = "главный старшина"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 5,
+                        Land = "старшина",
+                        Marine = "главный корабельный старшина"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 6,
+                        Land = "прапорщик",
+                        Marine = "мичман"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 7,
+                        Land = "ст. прапорщик",
+                        Marine = "ст. мичман"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 8,
+                        Land = "мл. лейтенант",
+                        Marine = "мл. лейтенант"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 9,
+                        Land = "лейтенант",
+                        Marine = "лейтенант"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 10,
+                        Land = "ст. лейтенант",
+                        Marine = "ст. лейтенант"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 11,
+                        Land = "капитан",
+                        Marine = "капитан-лейтенант"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 12,
+                        Land = "майор",
+                        Marine = "капитан 3 ранга"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 13,
+                        Land = "подполковник",
+                        Marine = "капитан 2 ранга"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 14,
+                        Land = "полковник",
+                        Marine = "капитан 1 ранга"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 15,
+                        Land = "генерал-майор",
+                        Marine = "контр-адмирал"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 16,
+                        Land = "генерал-лейтенант",
+                        Marine = "вице-адмирал"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 17,
+                        Land = "генерал-полковник",
+                        Marine = "адмирал"
+                    });
+                    ctxg.MilitaryTitle.AddObject(new MilitaryTitle()
+                    {
+                        Rank = 18,
+                        Land = "генерал армии",
+                        Marine = "адмирал флота"
+                    });
+
+                    ctxg.SaveChanges();
+                }
+
+            }
+
+        }
+
+        public static void FillMilitaryDistrict(FirebirdFilePath dbFile)
+        {
+            List<VID_VS> entities;
+            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
+            {
+                entities = ctxFB.VID_VS.ToList();
+            }
+
+            using (BrandNewContext ctxg = new BrandNewContext())
+            {
+                foreach (var entity in entities)
+                {
+                    if (!ctxg.MilitaryDistrict.Any(e => e.Name.Equals(entity.NAME)))
+                    {
+                        ctxg.MilitaryDistrict.AddObject(new MilitaryDistrict() { Name = entity.NAME });
+                    }
+                }
+
+                ctxg.SaveChanges();
             }
 
         }
@@ -528,29 +679,6 @@ namespace FormDatabaseConverter.Utility
 
         }
 
-        public static void FillMilitaryDistrict(FirebirdFilePath dbFile)
-        {
-            List<VID_VS> entities;
-            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
-            {
-                entities = ctxFB.VID_VS.ToList();
-            }
-
-            using (BrandNewContext ctxg = new BrandNewContext())
-            {
-                foreach (var entity in entities)
-                {
-                    if (!ctxg.MilitaryDistrict.Any(e => e.Name.Equals(entity.NAME)))
-                    {
-                        ctxg.MilitaryDistrict.AddObject(new MilitaryDistrict() { Name = entity.NAME });
-                    }
-                }
-
-                ctxg.SaveChanges();
-            }
-
-        }
-
         public static void FillMilitaryForces(FirebirdFilePath dbFile)
         {
             List<VID_VS> entities;
@@ -566,29 +694,6 @@ namespace FormDatabaseConverter.Utility
                     if (!ctxg.MilitaryForces.Any(e => e.Name.Equals(entity.NAME)))
                     {
                         ctxg.MilitaryForces.AddObject(new MilitaryForces() { Name = entity.NAME });
-                    }
-                }
-
-                ctxg.SaveChanges();
-            }
-
-        }
-
-        public static void FillMilitaryTitle(FirebirdFilePath dbFile)
-        {
-            List<VID_VS> entities;
-            using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
-            {
-                entities = ctxFB.VID_VS.ToList();
-            }
-
-            using (BrandNewContext ctxg = new BrandNewContext())
-            {
-                foreach (var entity in entities)
-                {
-                    if (!ctxg.MilitaryTitle.Any(e => e.Name.Equals(entity.NAME)))
-                    {
-                        ctxg.MilitaryTitle.AddObject(new MilitaryTitle() { Name = entity.NAME });
                     }
                 }
 

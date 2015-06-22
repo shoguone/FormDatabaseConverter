@@ -101,12 +101,14 @@ namespace FormDatabaseConverter
             //if (defaultSeason != null)
             //    SelectDBComboBox.SelectedItem = defaultSeason;
 
+            //FillTables.FillCompetency();
+            //FillTables.FillMilitaryTitle();
             foreach (var fbf in DBFiles)
             {
                 //FillMilitaryForces(fbf);
                 //FillTables.FillSeason(fbf);
                 //FillTables.FillDepartment(fbf);
-                FillTables.FillChosenRecruit(fbf);
+                //FillTables.FillChosenRecruit(fbf);
             }
 
         }
