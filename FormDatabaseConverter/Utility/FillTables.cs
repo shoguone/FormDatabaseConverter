@@ -404,10 +404,10 @@ namespace FormDatabaseConverter.Utility
 
         public static void FillMilitaryDistrict(FirebirdFilePath dbFile)
         {
-            List<VID_VS> entities;
+            List<V_OKRUG> entities;
             using (Old2014_1Context ctxFB = new Old2014_1Context(dbFile.ConnectionString))
             {
-                entities = ctxFB.VID_VS.ToList();
+                entities = ctxFB.V_OKRUG.ToList();
             }
 
             using (BrandNewContext ctxg = new BrandNewContext())
